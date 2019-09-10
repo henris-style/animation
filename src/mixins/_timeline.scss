@@ -4,21 +4,21 @@
 //
 
 @mixin animation-timeline($args) {
+  --animation-total-seconds: "#{$animation-duration}";
   $animation-name: "";
+
+  /* Global variables*/
+  $animation-duration: 0s !global;
+  $animation-steps: () !global;
+  animation: #{join($args)} #{$animation-duration};
   @if type-of(nth($args,1)) == "string" {
     $animation-name: nth($args, 1);
   } @else {
     $animation-name: unique-id();
   }
 
-  /* Global variables*/
-  $animation-duration: 0s !global;
-  $animation-steps: () !global;
-
   /* Add the animation */
   @content;
-  animation: #{join($args)} #{$animation-duration};
-  --animation-total-seconds: "#{$animation-duration}";
 
   /*  Create the keyframes */
   @if $animation-duration > 0s {
