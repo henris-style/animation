@@ -1,0 +1,13 @@
+@import '../node_modules/ssst/index.scss';
+@import '../index.local';
+
+// Example: 
+// @include test(
+// 	'ease() function',
+// 	'Return the an ease'
+// ) {
+// 	@include is-equal(
+// 		ease('ease-in-out'),
+// 		'cubic-bezier(1,2,3,4)'
+// 	);
+// }
